@@ -7,7 +7,7 @@ const forecast = require('./util/forecast')
 
 //app initialized
 const app = express()
-
+const port = process.env.port || 3000
 //paths defined
 const staticFilePath = path.join(__dirname,'../public')
 const viewsPath = path.join(__dirname,'../templates/views')
@@ -99,7 +99,7 @@ app.get('*',(req,res) =>{
     })
 })
 
-app.listen(8080,() =>{
+app.listen(port,() =>{
     console.log("Listening on port 8080")
 })
 

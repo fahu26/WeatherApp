@@ -13,7 +13,8 @@ document.querySelector('form').addEventListener('submit',(event) =>{
     if(msg1.classList.contains('error')){
         msg1.classList.remove('error')
     }
-    const url ='http://localhost:8080/weather?address=' + encodeURIComponent(address)
+  //  const url ='http://localhost:8080/weather?address=' + encodeURIComponent(address)
+   const url ='/weather?address=' + encodeURIComponent(address)
 
     fetch(url).then((response) =>{
         response.json().then((data) =>{
