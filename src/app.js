@@ -7,7 +7,7 @@ const forecast = require('./util/forecast')
 
 //app initialized
 const app = express()
-const port = process.env.port || 3000
+const port = process.env.port || 8080
 //paths defined
 const staticFilePath = path.join(__dirname,'../public')
 const viewsPath = path.join(__dirname,'../templates/views')
@@ -59,13 +59,13 @@ app.get('/weather',(req,res) =>{
             return res.send({error})
         }
 
-        forecast(latitude, longitude, (error,{weather}) =>{
+        forecast(latitude, longitude, (error,forecastData) =>{
             if(error){
                 return res.send({error})
             }
 
         res.send({
-        forecast: weather[0],
+        forecast: forecastData,
         location: place_name,
         address: req.query.address,
     })

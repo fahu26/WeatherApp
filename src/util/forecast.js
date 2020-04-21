@@ -11,11 +11,13 @@ const forecast = (latitude,longitude,callback) =>{
             callback("Bad Request for weather service, Please try with other input",undefined)
         }
         else{
-           callback(undefined,{
-               weather: body.current.weather_descriptions,
-               temperature: body.current.temperature,
-               feelslike: body.current.feelslike,
-           })
+           callback(undefined,
+            //    weather: body.current.weather_descriptions,
+            //    temperature: body.current.temperature,
+            //    feelslike: body.current.feelslike,
+             'Current Weather '+body.current.weather_descriptions+' Temperature: '+body.current.temperature+' degrees out, But feels like '+body.current.feelslike+' degrees out'
+
+           )
         }
     
     })
